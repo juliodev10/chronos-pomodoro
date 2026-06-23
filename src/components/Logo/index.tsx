@@ -1,9 +1,13 @@
+import { TimerIcon } from 'lucide-react';
 import styles from './styles.module.css';
 
-type HeadingProps = {
-  children: React.ReactNode;
-};
-
-export function Heading({ children }: HeadingProps) {
-  return <h1 className={styles.heading}>{children}</h1>;
+export function Logo() {
+  return (
+    <div className={styles.logo}>
+      <a className={styles.logoLink} href='#'>
+        <TimerIcon />
+        <span>Chronos</span>
+      </a>
+    </div>
+  );
 }
