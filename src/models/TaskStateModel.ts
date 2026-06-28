@@ -9,7 +9,7 @@ export type TaskStateModel = {
   activeTask: TaskModel | null; //Countdown, histórico, MainForm, button
   currentCycle: number; //1 a 8/ Home
   config: {
-    worktime: number; //MainForm
+    workTime: number; //MainForm
     shortBreakTime: number; //MainForm
     longBreakTime: number; //MainForm
   };
