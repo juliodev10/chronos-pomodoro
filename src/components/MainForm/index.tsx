@@ -5,11 +5,10 @@ import { DefaultInput } from '../DefaultInput';
 import { useRef } from 'react';
 import type { TaskModel } from '../../models/TaskModel';
 import { useTaskContext } from '../../contexts/TaskContext/useTaskContext';
-import { getNextCycle } from '../utils/getNextCycle';
-import { getNextCycleType } from '../utils/getNextCycleType';
+import { getNextCycle } from '../../utils/getNextCycle';
+import { getNextCycleType } from '../../utils/getNextCycleType';
 import { TaskActionTypes } from '../../contexts/TaskContext/taskActions';
 import { Tips } from '../Tips';
-import { TimerWorkerManager } from '../../workers/TimerWorkerManager';
 
 export function MainForm() {
   const { state, dispatch } = useTaskContext();
@@ -35,21 +34,11 @@ export function MainForm() {
       startDate: Date.now(),
       completeDate: null,
       interruptedDate: null,
-      duration: state.config[nextCycleType],
+      duration: state.config[nextCycleType as keyof typeof state.config],
       type: nextCycleType,
     };
 
     dispatch({ type: TaskActionTypes.START_TASK, payload: newTask });
-    const worker = TimerWorkerManager.getInstance();
-
-    worker.postMessage('FAVOR');
-    worker.postMessage('FAla_OI');
-    worker.postMessage('BLABLABLA');
-    worker.postMessage('FECHAR');
-
-    worker.onmessage(event => {
-      console.log('PRINCIPAL recebeu:', event.data);
-    });
   }
 
   function handleInterruptTask() {

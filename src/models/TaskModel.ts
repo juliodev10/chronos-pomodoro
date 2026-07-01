@@ -1,4 +1,5 @@
 import type { TaskStateModel } from './TaskStateModel';
+import type { CycleType } from './CycleTypeModel';
 
 export type TaskModel = {
   id: string;
@@ -7,5 +8,5 @@ export type TaskModel = {
   startDate: number;
   completeDate: number | null;
   interruptedDate: number | null;
-  type: keyof TaskStateModel['config'];
+  type: CycleType;
 };

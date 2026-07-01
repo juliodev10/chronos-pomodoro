@@ -1,4 +1,5 @@
 import type { TaskModel } from './TaskModel';
+import type { CycleType } from './CycleTypeModel';
 
 //Estado -> Componente -> Filhos
 
@@ -8,9 +9,5 @@ export type TaskStateModel = {
   formattedSecondsRemaining: string; //titulo, countdown
   activeTask: TaskModel | null; //Countdown, histórico, MainForm, button
   currentCycle: number; //1 a 8/ Home
-  config: {
-    workTime: number; //MainForm
-    shortBreakTime: number; //MainForm
-    longBreakTime: number; //MainForm
-  };
+  config: Record<CycleType, number>;
 };

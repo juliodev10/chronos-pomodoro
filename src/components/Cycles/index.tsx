@@ -1,6 +1,6 @@
 import { useTaskContext } from '../../contexts/TaskContext/useTaskContext';
-import { getNextCycle } from '../utils/getNextCycle';
-import { getNextCycleType } from '../utils/getNextCycleType';
+import { getNextCycle } from '../../utils/getNextCycle';
+import { getNextCycleType } from '../../utils/getNextCycleType';
 import styles from './styles.module.css';
 
 export function Cycles() {
@@ -27,8 +27,16 @@ export function Cycles() {
             <span
               key={nextCycle}
               className={`${styles.cycleDot} ${styles[nextCycleType]}`}
-              aria-label={`Indicador de ciclo de ${cycleDescriptionMap[nextCycleType]}`}
-              title={`Indicador de ciclo de ${cycleDescriptionMap[nextCycleType]}`}
+              aria-label={`Indicador de ciclo de ${
+                cycleDescriptionMap[
+                  nextCycleType as keyof typeof cycleDescriptionMap
+                ]
+              }`}
+              title={`Indicador de ciclo de ${
+                cycleDescriptionMap[
+                  nextCycleType as keyof typeof cycleDescriptionMap
+                ]
+              }`}
             ></span>
           );
         })}
